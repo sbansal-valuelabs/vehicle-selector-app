@@ -2,17 +2,13 @@ import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { uploadVehicle } from './services/vehicleService';
 import { useVehicleData } from './hooks/useVehicleData';
 import { useVehicleSelection } from './hooks/useVehicleSelection';
-import { QuickSelect, type QuickSelectOption } from './components/QuickSelect';
+import { QuickSelect } from './components/QuickSelect';
 import { VehicleForm } from './components/VehicleForm';
 import { SubmissionResult as SubmissionResultView } from './components/SubmissionResult';
 import { StatusMessage } from './components/StatusMessage';
 import type { SubmissionResult } from './types/vehicle';
+import { QUICK_SELECT_OPTIONS } from './constants/vehicleConstants';
 import './App.css';
-
-const QUICK_SELECT_OPTIONS: QuickSelectOption[] = [
-  { label: 'Tesla Model 3 Performance', make: 'Tesla', model: 'Model 3', badge: 'Performance' },
-  { label: 'Ford Ranger Raptor', make: 'Ford', model: 'Ranger', badge: 'Raptor' },
-];
 
 function App() {
   const {
