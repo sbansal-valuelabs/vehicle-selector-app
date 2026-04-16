@@ -10,6 +10,6 @@
     "skipLibCheck": true,
     "types": ["jest"]
   },
-  "include": ["server.ts", "tests/**/*.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["server.ts", "routes/**/*.ts", "services/**/*.ts", "middleware/**/*.ts"],
+  "exclude": ["node_modules", "dist", "tests"]
 }

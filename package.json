@@ -11,6 +11,7 @@
     "dev-backend": "npm run dev --workspace=backend",
     "build-frontend": "npm run build --workspace=frontend",
     "build-backend": "npm run build --workspace=backend",
+    "build": "npm run build-frontend && npm run build-backend",
     "start": "npm start --workspace=backend",
     "pm2-start": "npm run pm2:start --workspace=backend",
     "pm2-stop": "npm run pm2:stop --workspace=backend",
