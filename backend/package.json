@@ -1,0 +1,32 @@
+{
+  "name": "vehicle-selector-backend",
+  "version": "1.0.0",
+  "description": "Simple Express server with vanilla HTML/JS for vehicle selection and logbook upload",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "ts-node server.ts",
+    "dev": "ts-node server.ts",
+    "build": "tsc",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "multer": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/multer": "^2.1.0",
+    "@types/node": "^25.6.0",
+    "@types/supertest": "^7.2.0",
+    "jest": "^30.3.0",
+    "supertest": "^7.2.2",
+    "ts-jest": "^29.4.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  }
+}

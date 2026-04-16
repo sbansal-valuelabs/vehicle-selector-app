@@ -1,0 +1,82 @@
+.appContainer {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.quickSelectSection {
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+
+.quickSelectButton {
+  margin-right: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.quickSelectButton:last-of-type {
+  margin-right: 0;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.formControl {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.fileInput {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.submitButton,
+.secondaryButton {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.statusMessage {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.statusMessage.error {
+  background: #ffe0e0;
+  color: #c00;
+}
+
+.statusMessage.success {
+  background: #e0ffe0;
+}
+
+.resultContent pre {
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.secondaryButton {
+  margin-top: 15px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
