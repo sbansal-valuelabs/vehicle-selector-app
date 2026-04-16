@@ -1,4 +1,4 @@
-import React, { type ReactNode } from 'react';
+import { forwardRef, type ReactNode } from 'react';
 
 interface StatusMessageProps {
   type: 'error' | 'success';
@@ -7,8 +7,16 @@ interface StatusMessageProps {
   children: ReactNode;
 }
 
-export const StatusMessage = React.forwardRef<HTMLDivElement, StatusMessageProps>(
-  ({ type, role = type === 'error' ? 'alert' : 'status', live = type === 'error' ? 'assertive' : 'polite', children }, ref) => (
+export const StatusMessage = forwardRef<HTMLDivElement, StatusMessageProps>(
+  (
+    {
+      type,
+      role = type === 'error' ? 'alert' : 'status',
+      live = type === 'error' ? 'assertive' : 'polite',
+      children,
+    },
+    ref,
+  ) => (
     <div
       ref={ref}
       tabIndex={-1}
@@ -18,7 +26,7 @@ export const StatusMessage = React.forwardRef<HTMLDivElement, StatusMessageProps
     >
       {children}
     </div>
-  )
+  ),
 );
 
 StatusMessage.displayName = 'StatusMessage';
