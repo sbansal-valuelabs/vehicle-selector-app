@@ -57,6 +57,34 @@ App will be at: http://localhost:3000
 
 ---
 
+## Run Backend with PM2
+
+From the workspace root, start the backend under PM2 with:
+
+```bash
+npm run pm2-start
+```
+
+Stop the PM2 backend process:
+
+```bash
+npm run pm2-stop
+```
+
+Restart the backend process:
+
+```bash
+npm run pm2-restart
+```
+
+View logs for the backend:
+
+```bash
+npm run pm2-logs
+```
+
+---
+
 ## Available Vehicles
 
 **Ford**: Ranger, Falcon, Fiesta  
