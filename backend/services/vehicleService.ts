@@ -1,4 +1,4 @@
-import { vehicleData } from '../vehicleData';
+import { vehicleData } from '../data/vehicleData';
 
 export type VehicleData = typeof vehicleData;
 
