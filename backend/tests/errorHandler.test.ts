@@ -36,6 +36,6 @@ describe('errorHandler middleware', () => {
     errorHandler(err, {} as Request, res, {} as NextFunction);
 
     expect(res.status).toHaveBeenCalledWith(400);
-    expect(res.json).toHaveBeenCalledWith({ error: err.message });
+    expect(res.json).toHaveBeenCalledWith({ error: 'File size exceeds the maximum allowed limit.' });
   });
 });

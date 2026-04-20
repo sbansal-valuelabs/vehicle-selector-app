@@ -195,7 +195,7 @@ describe('App Component', () => {
     await user.click(submitBtn);
     
     await waitFor(() => {
-      expect(window.fetch).toHaveBeenCalledWith('/upload', expect.objectContaining({
+      expect(window.fetch).toHaveBeenCalledWith('http://localhost:3000/upload', expect.objectContaining({
         method: 'POST',
       }));
     });
@@ -232,7 +232,7 @@ describe('App Component', () => {
     await user.click(submitBtn);
     
     await waitFor(() => {
-      expect(window.fetch).toHaveBeenCalledWith('/upload', expect.objectContaining({
+      expect(window.fetch).toHaveBeenCalledWith('http://localhost:3000/upload', expect.objectContaining({
         method: 'POST',
       }));
     });
