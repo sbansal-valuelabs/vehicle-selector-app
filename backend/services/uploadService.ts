@@ -1,3 +1,5 @@
+import { ERROR_MESSAGES } from '../constants/messages';
+
 export interface UploadFields {
   make?: unknown;
   model?: unknown;
@@ -8,13 +10,13 @@ export const validateUploadFields = ({ make, model, badge }: UploadFields): stri
   const errors: string[] = [];
 
   if (!make || typeof make !== 'string' || !make.trim()) {
-    errors.push('Make is required.');
+    errors.push(ERROR_MESSAGES.MAKE_REQUIRED);
   }
   if (!model || typeof model !== 'string' || !model.trim()) {
-    errors.push('Model is required.');
+    errors.push(ERROR_MESSAGES.MODEL_REQUIRED);
   }
   if (!badge || typeof badge !== 'string' || !badge.trim()) {
-    errors.push('Badge is required.');
+    errors.push(ERROR_MESSAGES.BADGE_REQUIRED);
   }
 
   return errors;
