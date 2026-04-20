@@ -1,4 +1,4 @@
 # Node.js Version
-# This project requires Node.js 22.18.0 or higher
-# Current LTS version for production stability
-22.18.0
+# This project requires Node.js 22.x (Current LTS)
+# Any Node 22.x version is acceptable
+22
