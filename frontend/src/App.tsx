@@ -8,6 +8,7 @@ import { SubmissionResult as SubmissionResultView } from './components/Submissio
 import { StatusMessage } from './components/StatusMessage';
 import type { SubmissionResult } from './types/vehicle';
 import { QUICK_SELECT_OPTIONS } from './constants/vehicleConstants';
+import { UI_STRINGS, SCROLL_CONFIG } from './constants/appConstants';
 import './App.css';
 
 function App() {
@@ -38,13 +39,13 @@ function App() {
     statusRef.current.focus();
 
     if (result) {
-      window.scrollTo?.({ top: 0, behavior: 'smooth' });
+      window.scrollTo?.({ top: SCROLL_CONFIG.TOP, behavior: SCROLL_CONFIG.BEHAVIOR });
       return;
     }
 
     if (formError || loadError) {
       if (typeof statusRef.current.scrollIntoView === 'function') {
-        statusRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        statusRef.current.scrollIntoView({ behavior: SCROLL_CONFIG.BEHAVIOR, block: SCROLL_CONFIG.BLOCK });
       }
     }
   }, [result, formError, loadError]);
@@ -67,7 +68,7 @@ function App() {
     try {
       setResult(await uploadVehicle({ make, model, badge, logbook }));
     } catch (err) {
-      setFormError(err instanceof Error ? err.message : 'An unexpected error occurred.');
+      setFormError(err instanceof Error ? err.message : UI_STRINGS.ERRORS.UNEXPECTED);
     } finally {
       setIsSubmitting(false);
     }
@@ -79,8 +80,8 @@ function App() {
   if (isLoadingVehicles) {
     return (
       <main className="appContainer">
-        <h1>Select Your Vehicle</h1>
-        <p>Loading vehicle data…</p>
+        <h1>{UI_STRINGS.TITLE}</h1>
+        <p>{UI_STRINGS.LOADING}</p>
         {loadError ? (
           <StatusMessage ref={statusRef} type="error">
             <strong>Error:</strong> {loadError}
@@ -93,9 +94,9 @@ function App() {
   if (noVehiclesLoaded) {
     return (
       <main className="appContainer">
-        <h1>Select Your Vehicle</h1>
+        <h1>{UI_STRINGS.TITLE}</h1>
         <StatusMessage ref={statusRef} type="error">
-          <strong>Error:</strong> {loadError ?? 'Unable to load vehicle data. Please refresh to try again.'}
+          <strong>Error:</strong> {loadError ?? UI_STRINGS.ERRORS.LOAD_FAILED}
         </StatusMessage>
       </main>
     );
@@ -103,7 +104,7 @@ function App() {
 
   return (
     <main className="appContainer">
-      <h1>Select Your Vehicle</h1>
+      <h1>{UI_STRINGS.TITLE}</h1>
 
       {!result ? (
         <>

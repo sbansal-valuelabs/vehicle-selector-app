@@ -1,4 +1,5 @@
 import { apiFetch } from './api';
+import { API_CONFIG } from '../constants/appConstants';
 import type { SubmissionResult, UploadData, VehicleData } from '../types/vehicle';
 
 export async function uploadVehicle(data: UploadData): Promise<SubmissionResult> {
@@ -11,12 +12,14 @@ export async function uploadVehicle(data: UploadData): Promise<SubmissionResult>
     formData.append('logbook', data.logbook);
   }
 
-  return apiFetch<SubmissionResult>('/upload', {
+  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.UPLOAD}`;
+  return apiFetch<SubmissionResult>(url, {
     method: 'POST',
     body: formData,
   });
 }
 
 export async function fetchVehicleData(): Promise<VehicleData> {
-  return apiFetch<VehicleData>('/vehicles');
+  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.VEHICLES}`;
+  return apiFetch<VehicleData>(url);
 }

@@ -1,5 +1,6 @@
 import type { FormEvent, RefObject } from 'react';
 import { FormField } from './FormField';
+import { UI_STRINGS } from '../constants/appConstants';
 import type { Selection } from '../hooks/useVehicleSelection';
 
 interface VehicleFormProps {
@@ -29,9 +30,9 @@ export function VehicleForm({
 
   return (
     <form onSubmit={onSubmit} className="vehicleForm" noValidate>
-      <FormField id="make" label="Make:">
+      <FormField id="make" label={UI_STRINGS.FORM_LABELS.MAKE}>
         <select id="make" name="make" value={make} onChange={(event) => onChange('make', event.target.value)} required className="formControl">
-          <option value="">-- Select Make --</option>
+          <option value="">{UI_STRINGS.FORM_PLACEHOLDERS.SELECT_MAKE}</option>
           {makes.map((makeOption) => (
             <option key={makeOption} value={makeOption}>
               {makeOption}
@@ -40,7 +41,7 @@ export function VehicleForm({
         </select>
       </FormField>
 
-      <FormField id="model" label="Model:">
+      <FormField id="model" label={UI_STRINGS.FORM_LABELS.MODEL}>
         <select
           id="model"
           name="model"
@@ -50,7 +51,7 @@ export function VehicleForm({
           required
           className="formControl"
         >
-          <option value="">-- Select Model --</option>
+          <option value="">{UI_STRINGS.FORM_PLACEHOLDERS.SELECT_MODEL}</option>
           {models.map((modelOption) => (
             <option key={modelOption} value={modelOption}>
               {modelOption}
@@ -59,7 +60,7 @@ export function VehicleForm({
         </select>
       </FormField>
 
-      <FormField id="badge" label="Badge:">
+      <FormField id="badge" label={UI_STRINGS.FORM_LABELS.BADGE}>
         <select
           id="badge"
           name="badge"
@@ -69,7 +70,7 @@ export function VehicleForm({
           required
           className="formControl"
         >
-          <option value="">-- Select Badge --</option>
+          <option value="">{UI_STRINGS.FORM_PLACEHOLDERS.SELECT_BADGE}</option>
           {badges.map((badgeOption) => (
             <option key={badgeOption} value={badgeOption}>
               {badgeOption}
@@ -79,12 +80,12 @@ export function VehicleForm({
       </FormField>
 
       {badge ? (
-        <FormField id="logbook" label="Upload Logbook (Plain Text .txt):">
+        <FormField id="logbook" label={UI_STRINGS.FORM_LABELS.LOGBOOK}>
           <input
             id="logbook"
             type="file"
             name="logbook"
-            accept=".txt, text/plain"
+            accept={UI_STRINGS.FILE_TYPES.ACCEPT}
             ref={fileInputRef}
             className="fileInput"
           />
@@ -93,7 +94,7 @@ export function VehicleForm({
 
       <div className="formActions">
         <button type="submit" disabled={!canSubmit} className="submitButton">
-          {isSubmitting ? 'Submitting…' : 'Submit'}
+          {isSubmitting ? UI_STRINGS.BUTTONS.SUBMITTING : UI_STRINGS.BUTTONS.SUBMIT}
         </button>
       </div>
     </form>
