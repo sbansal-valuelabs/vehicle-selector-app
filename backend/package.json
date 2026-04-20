@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Simple Express server with vanilla HTML/JS for vehicle selection and logbook upload",
   "main": "dist/server.js",
+  "engines": {
+    "node": ">=22.18.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "start": "ts-node server.ts",
     "dev": "ts-node server.ts",
